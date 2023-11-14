@@ -1,5 +1,3 @@
-.PHONY: test coverage install
-
 check_poetry:
 	@command -v poetry >/dev/null 2>&1 || { echo >&2 "Poetry is not installed. Installing poetry..."; \
 		curl -sSL https://install.python-poetry.org | python3 -; }
