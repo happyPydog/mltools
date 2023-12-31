@@ -3,17 +3,19 @@ check_poetry:
 		curl -sSL https://install.python-poetry.org | python3 -; }
 
 coverage:
-	poetry run pytest --cov \
+	pytest --cov \
 		--cov-config=.coveragerc \
 		--cov-report xml \
 		--cov-report term-missing:skip-covered
 
 test:
-	python -m pytest
+	pytest tests
 
-install: check_poetry
-	poetry config virtualenvs.in-project true
-	poetry install
+install:
+	pip install --upgrade pip setuptools
+	pip install -r requirements.txt
+	pip install -r requirements-dev.txt
 
-typecheck:
-	poetry run mypy .
+lint:
+	black .
+	mypy .
