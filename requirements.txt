@@ -4,3 +4,8 @@ matplotlib
 scikit-learn
 xgboost
 shap
+optuna
+
+# transformer
+# torch
+# skorch
